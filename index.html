@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedro | Developer Portfolio</title>
+    
+    <!-- Tailwind CSS (Styling) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome (Icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        mono: ['Space Mono', 'monospace'],
+                    },
+                    colors: {
+                        'neon-blue': '#00f3ff',
+                        'neon-purple': '#bc13fe',
+                        'dark-bg': '#0a0a0f',
+                        'card-bg': 'rgba(255, 255, 255, 0.05)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0a0a0f;
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0f; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00f3ff; 
+        }
+
+        /* Animated Background Mesh */
+        .blob {
+            position: absolute;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.4;
+            animation: move 10s infinite alternate;
+        }
+        @keyframes move {
+            from { transform: translate(0, 0) scale(1); }
+            to { transform: translate(20px, -20px) scale(1.1); }
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            border-color: rgba(0, 243, 255, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.1);
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #00f3ff, #bc13fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #00f3ff;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Background Glows -->
+    <div class="blob bg-neon-purple w-96 h-96 rounded-full top-0 left-0"></div>
+    <div class="blob bg-neon-blue w-96 h-96 rounded-full bottom-0 right-0"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-card border-none rounded-none px-6 py-4 flex justify-between items-center">
+        <div class="text-2xl font-bold font-mono tracking-tighter">
+            PEDRO<span class="text-neon-blue">HUSKY</span>
+        </div>
+        <div class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest">
+            <a href="#about" class="nav-link hover:text-neon-blue transition">About</a>
+            <a href="#stack" class="nav-link hover:text-neon-blue transition">Skills</a>
+            <a href="#projects" class="nav-link hover:text-neon-blue transition">Projects</a>
+            <a href="#donate" class="nav-link hover:text-neon-blue transition">Donate</a>
+        </div>
+        <a href="#contact" class="px-6 py-2 border border-neon-blue text-neon-blue hover:bg-neon-blue hover:text-black transition font-bold text-sm rounded-full">
+            LET'S TALK
+        </a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative px-6 pt-20">
+        <div class="text-center max-w-4xl mx-auto" data-aos="zoom-in">
+            <div class="mb-6">
+                <img src="https://avatars.githubusercontent.com/pedrohusky" alt="Pedro" class="w-32 h-32 rounded-full mx-auto border-4 border-neon-purple shadow-[0_0_30px_rgba(188,19,254,0.5)]">
+            </div>
+            <h2 class="text-neon-blue font-mono mb-4 text-xl">Hello, World! I am</h2>
+            <h1 class="text-6xl md:text-8xl font-black mb-6 leading-tight">
+                PEDRO <br>
+                <span class="gradient-text">DEVELOPER</span>
+            </h1>
+            <p class="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+                25-Year-Old Brazilian Dev. <span class="text-white">Python, Java & JS Enthusiast.</span><br>
+                Creating the extraordinary through code.
+            </p>
+            
+            <div class="flex justify-center gap-4 flex-wrap">
+                <div class="glass-card px-4 py-2 rounded-full flex items-center gap-2">
+                    <i class="fas fa-trophy text-yellow-400"></i> Pull Shark
+                </div>
+                <div class="glass-card px-4 py-2 rounded-full flex items-center gap-2">
+                    <i class="fas fa-snowflake text-blue-300"></i> Arctic Code Vault
+                </div>
+                <div class="glass-card px-4 py-2 rounded-full flex items-center gap-2">
+                    <i class="fas fa-gamepad text-white"></i> @EpicGames
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About & Stats -->
+    <section id="about" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right">
+                <h3 class="text-3xl font-bold mb-6 border-l-4 border-neon-purple pl-4">About Me</h3>
+                <p class="text-gray-300 leading-relaxed text-lg mb-6">
+                    I'm Pedro, a developer passionate about coding. Currently, I'm an active Python, Java, and JavaScript enthusiast, eager to learn and grow. 
+                    I started building Android apps and have expanded into full-stack development.
+                </p>
+                <p class="text-gray-300 leading-relaxed text-lg mb-6">
+                    <strong class="text-neon-blue">Interests:</strong> Computer Vision, Back-end Development, Data Pipelines, Machine Learning/AI, and Python GUIs.
+                </p>
+                <div class="flex gap-4">
+                    <a href="https://github.com/pedrohusky" target="_blank" class="text-3xl hover:text-neon-blue transition"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com" target="_blank" class="text-3xl hover:text-neon-blue transition"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:pedrohusky@live.com" class="text-3xl hover:text-neon-blue transition"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-4" data-aos="fade-left">
+                <div class="glass-card p-6 rounded-2xl text-center">
+                    <h4 class="text-4xl font-bold text-neon-blue mb-2">1.4k+</h4>
+                    <p class="text-sm font-mono text-gray-400">Contributions (Year)</p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl text-center">
+                    <h4 class="text-4xl font-bold text-neon-purple mb-2">8</h4>
+                    <p class="text-sm font-mono text-gray-400">Followers</p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl text-center">
+                    <h4 class="text-4xl font-bold text-white mb-2">Pro</h4>
+                    <p class="text-sm font-mono text-gray-400">Status</p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl text-center">
+                    <h4 class="text-4xl font-bold text-green-400">Top</h4>
+                    <p class="text-sm font-mono text-gray-400">Repositories</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section id="stack" class="py-20 bg-black/30">
+        <div class="max-w-6xl mx-auto px-6">
+            <h3 class="text-2xl font-mono text-center mb-12 text-gray-500">TECHNOLOGIES</h3>
+            <div class="flex flex-wrap justify-center gap-8 text-6xl text-gray-600">
+                <i class="fab fa-java hover:text-red-500 transition duration-300" title="Java"></i>
+                <i class="fab fa-python hover:text-yellow-400 transition duration-300" title="Python"></i>
+                <i class="fab fa-js hover:text-yellow-300 transition duration-300" title="JavaScript"></i>
+                <i class="fab fa-html5 hover:text-orange-500 transition duration-300" title="HTML5"></i>
+                <i class="fab fa-css3-alt hover:text-blue-500 transition duration-300" title="CSS3"></i>
+                <i class="fab fa-android hover:text-green-500 transition duration-300" title="Android"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center">Selected <span class="text-neon-blue">Projects</span></h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project 1 -->
+                <div class="glass-card p-8 rounded-2xl relative group" data-aos="fade-up" data-aos-delay="0">
+                    <div class="absolute top-4 right-4 text-xs font-mono px-2 py-1 bg-neon-blue/20 text-neon-blue rounded">JS</div>
+                    <h3 class="text-2xl font-bold mb-3">Binance Bot</h3>
+                    <p class="text-gray-400 text-sm mb-6">Automated trading bot. Buy low/Sell high with stop loss limit. Supports multiple cryptocurrencies.</p>
+                    <div class="flex items-center gap-4 text-sm text-gray-500">
+                        <span><i class="fas fa-star text-yellow-500"></i> 13</span>
+                        <span><i class="fas fa-code-branch"></i> 9</span>
+                    </div>
+                    <a href="https://github.com/pedrohusky/binance-trading-bot" class="absolute bottom-0 left-0 w-full p-4 bg-neon-blue/10 text-center font-bold text-neon-blue opacity-0 group-hover:opacity-100 transition">VIEW CODE</a>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="glass-card p-8 rounded-2xl relative group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute top-4 right-4 text-xs font-mono px-2 py-1 bg-yellow-400/20 text-yellow-400 rounded">Py</div>
+                    <h3 class="text-2xl font-bold mb-3">YouTube Downloader</h3>
+                    <p class="text-gray-400 text-sm mb-6">Python downloader with a modern UI. Supports downloading playlists or single videos effortlessly.</p>
+                    <div class="flex items-center gap-4 text-sm text-gray-500">
+                        <span><i class="fas fa-star text-yellow-500"></i> 5</span>
+                        <span><i class="fas fa-code-branch"></i> 1</span>
+                    </div>
+                    <a href="https://github.com/pedrohusky/youtube-python-downloader" class="absolute bottom-0 left-0 w-full p-4 bg-neon-blue/10 text-center font-bold text-neon-blue opacity-0 group-hover:opacity-100 transition">VIEW CODE</a>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="glass-card p-8 rounded-2xl relative group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-4 right-4 text-xs font-mono px-2 py-1 bg-neon-blue/20 text-neon-blue rounded">JS</div>
+                    <h3 class="text-2xl font-bold mb-3">ChatGPT Autoclicker</h3>
+                    <p class="text-gray-400 text-sm mb-6">Browser extension for Chromium/Firefox. Auto-clicks the "continue generating" button.</p>
+                    <div class="flex items-center gap-4 text-sm text-gray-500">
+                        <span><i class="fas fa-star text-yellow-500"></i> 7</span>
+                        <span><i class="fas fa-code-branch"></i> 2</span>
+                    </div>
+                    <a href="https://github.com/pedrohusky/chatgpt-continue-autoclicker" class="absolute bottom-0 left-0 w-full p-4 bg-neon-blue/10 text-center font-bold text-neon-blue opacity-0 group-hover:opacity-100 transition">VIEW CODE</a>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="glass-card p-8 rounded-2xl relative group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="absolute top-4 right-4 text-xs font-mono px-2 py-1 bg-yellow-400/20 text-yellow-400 rounded">Py</div>
+                    <h3 class="text-2xl font-bold mb-3">Malware Agent</h3>
+                    <p class="text-gray-400 text-sm mb-6">Educational POC. Persistent python agent designed to test system reboot resilience.</p>
+                    <div class="flex items-center gap-4 text-sm text-gray-500">
+                        <span><i class="fas fa-star text-yellow-500"></i> 2</span>
+                    </div>
+                    <a href="https://github.com/pedrohusky/malware-agent" class="absolute bottom-0 left-0 w-full p-4 bg-neon-blue/10 text-center font-bold text-neon-blue opacity-0 group-hover:opacity-100 transition">VIEW CODE</a>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="glass-card p-8 rounded-2xl relative group" data-aos="fade-up" data-aos-delay="400">
+                    <div class="absolute top-4 right-4 text-xs font-mono px-2 py-1 bg-red-500/20 text-red-400 rounded">Java</div>
+                    <h3 class="text-2xl font-bold mb-3">OrdeepBot</h3>
+                    <p class="text-gray-400 text-sm mb-6">Binance Trading Bot developed specifically for the Android ecosystem.</p>
+                    <div class="flex items-center gap-4 text-sm text-gray-500">
+                        <span><i class="fas fa-star text-yellow-500"></i> 1</span>
+                    </div>
+                    <a href="https://github.com/pedrohusky/OrdeepBot" class="absolute bottom-0 left-0 w-full p-4 bg-neon-blue/10 text-center font-bold text-neon-blue opacity-0 group-hover:opacity-100 transition">VIEW CODE</a>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="glass-card p-8 rounded-2xl relative group" data-aos="fade-up" data-aos-delay="500">
+                    <div class="absolute top-4 right-4 text-xs font-mono px-2 py-1 bg-yellow-400/20 text-yellow-400 rounded">Py</div>
+                    <h3 class="text-2xl font-bold mb-3">Clean Uninstaller</h3>
+                    <p class="text-gray-400 text-sm mb-6">Context menu utility to uninstall programs and scan/clean residual folders.</p>
+                    <div class="flex items-center gap-4 text-sm text-gray-500">
+                        <span><i class="fas fa-star text-yellow-500"></i> 2</span>
+                    </div>
+                    <a href="https://github.com/pedrohusky/clean-uninstaller" class="absolute bottom-0 left-0 w-full p-4 bg-neon-blue/10 text-center font-bold text-neon-blue opacity-0 group-hover:opacity-100 transition">VIEW CODE</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Section -->
+    <section id="donate" class="py-20 bg-gradient-to-b from-transparent to-black px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-8">Support My <span class="text-green-400">Work</span></h2>
+            <p class="text-gray-400 mb-10">If you liked any of my repos or want to support my journey, donations are appreciated.</p>
+            
+            <div class="space-y-4">
+                <!-- Binance Pay -->
+                <div class="glass-card p-4 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4 border-l-4 border-yellow-500">
+                    <div class="flex items-center gap-3">
+                        <i class="fab fa-btc text-2xl text-yellow-500"></i>
+                        <div class="text-left">
+                            <h4 class="font-bold">Binance Pay</h4>
+                            <p class="text-xs text-gray-500">No Fees</p>
+                        </div>
+                    </div>
+                    <code class="bg-black/50 px-4 py-2 rounded text-sm text-gray-300 font-mono select-all">124741538</code>
+                </div>
+
+                <!-- BTC BSC -->
+                <div class="glass-card p-4 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4 border-l-4 border-orange-500">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-wallet text-2xl text-orange-500"></i>
+                        <div class="text-left">
+                            <h4 class="font-bold">BTC (BSC Network)</h4>
+                            <p class="text-xs text-gray-500">Binance Smart Chain</p>
+                        </div>
+                    </div>
+                    <code class="bg-black/50 px-4 py-2 rounded text-sm text-gray-300 font-mono select-all truncate max-w-[200px] md:max-w-none">0xb0254633b6761925946fe38b85b821553245a787</code>
+                </div>
+
+                <!-- Gift Card -->
+                <div class="glass-card p-4 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4 border-l-4 border-pink-500">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-gift text-2xl text-pink-500"></i>
+                        <div class="text-left">
+                            <h4 class="font-bold">Binance Gift Card</h4>
+                            <p class="text-xs text-gray-500">Discord: pedrohusky#9119</p>
+                        </div>
+                    </div>
+                    <span class="text-sm text-gray-300">Contact me for 0 fee transfer ($1+)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="py-10 border-t border-gray-800 text-center">
+        <div class="mb-6 flex justify-center gap-8">
+            <a href="https://linkedin.com" class="text-2xl text-gray-500 hover:text-white transition"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:pedrohusky@live.com" class="text-2xl text-gray-500 hover:text-white transition"><i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/pedrohusky" class="text-2xl text-gray-500 hover:text-white transition"><i class="fab fa-github"></i></a>
+        </div>
+        <p class="text-gray-600 font-mono text-sm">
+            &copy; 2025 Pedro Husky. <span class="text-neon-blue">Let's connect and explore the code.</span>
+        </p>
+    </footer>
+
+    <!-- AOS Script for Scroll Animations -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+</html>
